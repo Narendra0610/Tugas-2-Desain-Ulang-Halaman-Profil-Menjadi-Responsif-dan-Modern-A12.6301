@@ -1,0 +1,434 @@
+/* ══════ 1. VARIABEL WARNA & TEMA ══════
+Ubah warna utama di sini. Blok [data-bs-theme=light] di bawahnya adalah warna mode terang.
+--accent = teal utama, --accent2 = violet pendamping, --ink = warna teks di atas tombol aksen. */
+:root {
+  --bg:#070a13;
+  --surface:#0f1424;
+  --line:#222a44;
+  --text:#e8ecf8;
+  --muted:#98a1bd;
+  --accent:#5eead4;
+  --accent2:#c4b5fd;
+  --ink:#04201c;
+  --bs-body-bg:var(--bg);
+  --bs-body-color:var(--text);
+  --bs-body-font-family:'DM Sans',system-ui,sans-serif
+}
+[data-bs-theme=light] {
+  --bg:#f5f6fb;
+  --surface:#fff;
+  --line:#d9ddeb;
+  --text:#121829;
+  --muted:#566080;
+  --accent:#0f766e;
+  --accent2:#5b3fd0;
+  --ink:#fff
+}
+/* ══════ 2. DASAR (body, heading, link) ══════
+Font judul: Bricolage Grotesque. Font isi: DM Sans. Garis fokus keyboard memakai --accent. */
+body {
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.7;
+  scroll-padding-top:80px
+}
+html {
+  scroll-behavior:smooth;
+  scroll-padding-top:80px
+}
+h1,h2,h3,.navbar-brand {
+  font-family:'Bricolage Grotesque',sans-serif;
+  letter-spacing:-.02em
+}
+.text-muted-2 {
+  color:var(--muted)
+}
+a {
+  color:var(--accent)
+}
+:focus-visible {
+  outline:2px solid var(--accent);
+  outline-offset:3px
+}
+/* ══════ 3. NAVBAR ══════
+Latar blur semi-transparan, link, dan tombol aksen (.btn-accent / .btn-outline-accent). */
+.site-nav {
+  background:color-mix(in srgb,var(--bg) 82%,transparent);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--line)
+}
+.site-nav .nav-link {
+  color:var(--muted)
+}
+.site-nav .nav-link:hover {
+  color:var(--text)
+}
+.navbar-brand {
+  color:var(--text)!important
+}
+.dot {
+  color:var(--accent)
+}
+.btn-accent {
+  background:var(--accent);
+  color:var(--ink);
+  font-weight:700;
+  border:0;
+  padding:.65rem 1.3rem
+}
+.btn-accent:hover {
+  background:var(--accent2);
+  color:var(--ink)
+}
+.btn-outline-accent {
+  border:1px solid var(--accent);
+  color:var(--accent)
+}
+.btn-outline-accent:hover {
+  background:var(--accent);
+  color:var(--ink)
+}
+/* ══════ 4. HERO ══════
+Gradasi latar, lencana status berdenyut (.pulse), nama besar, dan kartu terminal (.terminal). */
+.hero {
+  padding:9rem 0 5rem;
+  background:radial-gradient(60% 50% at 85% 10%,color-mix(in srgb,var(--accent2) 22%,transparent),transparent),radial-gradient(40% 40% at 0% 100%,color-mix(in srgb,var(--accent) 14%,transparent),transparent)
+}
+.status {
+  display:inline-flex;
+  align-items:center;
+  gap:.6rem;
+  border:1px solid var(--line);
+  border-radius:99px;
+  padding:.3rem .9rem;
+  color:var(--muted);
+  font-size:.9rem
+}
+.pulse {
+  width:8px;
+  height:8px;
+  border-radius:50%;
+  background:var(--accent);
+  box-shadow:0 0 0 0 var(--accent);
+  animation:pulse 2s infinite
+}
+@keyframes pulse {
+  70% {
+    box-shadow:0 0 0 9px transparent
+  }
+  100% {
+    box-shadow:0 0 0 0 transparent
+  }
+}
+.display-name {
+  font-size:clamp(2.4rem,6vw,4.4rem);
+  font-weight:800;
+  line-height:1.05;
+  margin:1.2rem 0 .8rem
+}
+.lead-role {
+  font-size:1.3rem;
+  color:var(--accent2);
+  margin-bottom:.4rem;
+  font-weight:500
+}
+.tagline {
+  color:var(--muted);
+  font-style:italic
+}
+.terminal {
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:14px;
+  box-shadow:0 30px 80px -30px color-mix(in srgb,var(--accent) 45%,transparent);
+  overflow:hidden
+}
+.term-bar {
+  display:flex;
+  align-items:center;
+  gap:7px;
+  padding:.7rem 1rem;
+  border-bottom:1px solid var(--line);
+  font:500 .8rem 'JetBrains Mono',monospace;
+  color:var(--muted)
+}
+.term-bar i {
+  width:11px;
+  height:11px;
+  border-radius:50%;
+  background:var(--line)
+}
+.term-bar span {
+  margin-left:.6rem
+}
+.terminal pre {
+  margin:0;
+  padding:1.2rem;
+  overflow-x:auto;
+  font:400 .85rem/1.8 'JetBrains Mono',monospace;
+  color:var(--text)
+}
+.terminal .c {
+  color:var(--muted)
+}
+.terminal .k {
+  color:var(--accent2)
+}
+.terminal .s {
+  color:var(--accent)
+}
+.terminal .n {
+  color:#fbbf24
+}
+.caret {
+  display:inline-block;
+  width:8px;
+  height:1em;
+  background:var(--accent);
+  vertical-align:-2px;
+  margin-left:3px;
+  animation:blink 1s steps(1) infinite
+}
+@keyframes blink {
+  50% {
+    opacity:0
+  }
+}
+/* ══════ 5. SECTION UMUM ══════
+Jarak antarbagian dan judul h2. .section.alt = bagian dengan latar sedikit berbeda (selang-seling). */
+.section {
+  padding:5.5rem 0
+}
+.section.alt {
+  background:var(--surface);
+  border-block:1px solid var(--line)
+}
+.section h2 {
+  font-size:clamp(1.8rem,4vw,2.6rem);
+  font-weight:700;
+  margin-bottom:2.2rem
+}
+/* ══════ 6. PENDIDIKAN & PANEL KEAHLIAN ══════
+.panel = kartu keahlian, .badges = chip teknologi. */
+.edu li {
+  padding:1rem 0;
+  border-bottom:1px solid var(--line);
+  display:grid;
+  gap:.1rem
+}
+.edu small {
+  color:var(--muted)
+}
+.panel {
+  background:var(--bg);
+  border:1px solid var(--line);
+  border-radius:12px;
+  padding:1.5rem;
+  height:100%
+}
+.alt .panel {
+  background:var(--bg)
+}
+.panel h3 {
+  font-size:1.05rem;
+  margin-bottom:1rem
+}
+.badges {
+  display:flex;
+  flex-wrap:wrap;
+  gap:.5rem
+}
+.badges span {
+  border:1px solid var(--line);
+  border-radius:6px;
+  padding:.25rem .7rem;
+  font-size:.88rem;
+  background:color-mix(in srgb,var(--accent) 8%,transparent)
+}
+.badges.soft span {
+  background:transparent;
+  border-radius:99px
+}
+/* ══════ 7. PROYEK ══════
+Gambar proyek dan daftar poin. */
+.project h3 {
+  font-size:1.7rem
+}
+.project img {
+  border:1px solid var(--line)
+}
+.proj-points {
+  padding-left:1.1rem;
+  color:var(--muted)
+}
+.proj-points li {
+  margin-bottom:.4rem
+}
+/* ══════ 8. TIMELINE PENGALAMAN ══════
+Garis vertikal kiri + titik penanda (::before) di tiap item. */
+.timeline {
+  list-style:none;
+  margin:0;
+  padding:0 0 0 1.6rem;
+  border-left:2px solid var(--line)
+}
+.timeline>li {
+  position:relative;
+  padding-bottom:2.4rem
+}
+.timeline>li::before {
+  content:"";
+  position:absolute;
+  left:calc(-1.6rem - 7px);
+  top:.45rem;
+  width:12px;
+  height:12px;
+  border-radius:50%;
+  background:var(--accent);
+  box-shadow:0 0 0 4px var(--surface)
+}
+.timeline time {
+  font:500 .85rem 'JetBrains Mono',monospace;
+  color:var(--accent)
+}
+.timeline h3 {
+  font-size:1.4rem;
+  margin:.2rem 0 0
+}
+.timeline .role {
+  color:var(--accent2);
+  margin-bottom:.5rem
+}
+.timeline ul {
+  color:var(--muted);
+  padding-left:1.1rem
+}
+/* ══════ 9. DROPDOWN SERTIFIKAT (accordion) ══════
+Warna accordion Bootstrap diganti lewat variabel --bs-accordion-*. */
+.accordion {
+  --bs-accordion-bg:var(--surface);
+  --bs-accordion-border-color:var(--line);
+  --bs-accordion-btn-bg:var(--surface);
+  --bs-accordion-active-bg:var(--surface);
+  --bs-accordion-active-color:var(--text);
+  --bs-accordion-btn-color:var(--text);
+  --bs-accordion-color:var(--text);
+  --bs-accordion-btn-focus-box-shadow:0 0 0 2px var(--accent)
+}
+.accordion-button {
+  font-family:'Bricolage Grotesque',sans-serif;
+  font-size:1.15rem;
+  font-weight:700;
+  gap:.8rem
+}
+.accordion-button:not(.collapsed) {
+  box-shadow:none
+}
+.yr {
+  font:500 .8rem 'JetBrains Mono',monospace;
+  color:var(--muted);
+  margin-left:auto;
+  margin-right:.5rem
+}
+.accordion-body img {
+  max-height:340px;
+  width:auto;
+  margin-inline:auto;
+  display:block
+}
+/* ══════ 10. KONTAK & FORM ══════
+Daftar kontak dan tampilan input mengikuti tema. */
+.contact-list li {
+  display:flex;
+  gap:1rem;
+  padding:.7rem 0;
+  border-bottom:1px solid var(--line)
+}
+.contact-list span {
+  width:90px;
+  color:var(--muted);
+  flex:none
+}
+.contact-list a {
+  word-break:break-all
+}
+.form-control {
+  background:var(--surface);
+  border-color:var(--line);
+  color:var(--text)
+}
+.form-control:focus {
+  background:var(--surface);
+  color:var(--text);
+  border-color:var(--accent);
+  box-shadow:0 0 0 2px color-mix(in srgb,var(--accent) 35%,transparent)
+}
+/* ══════ 12. RESPONSIF (HP) ══════
+Aturan khusus layar kecil. */
+@media(max-width:575px) {
+  .hero {
+    padding-top:7rem
+  }
+  .contact-list li {
+    flex-direction:column;
+    gap:0
+  }
+}
+@media(prefers-reduced-motion:reduce) {
+  * {
+  animation:none!important;
+  scroll-behavior:auto!important
+}
+}
+/* ══════ 11. TAMBAHAN (scrollspy, foto profil, perbaikan HP) ══════
+.nav-link.active = menu yang sedang aktif. .portrait = bingkai foto di bagian Tentang. */
+.site-nav .nav-link.active {
+  color:var(--accent)
+}
+.portrait {
+  margin:0;
+  position:relative;
+  border-radius:16px;
+  max-width:380px
+}
+.portrait::before {
+  content:"";
+  position:absolute;
+  inset:14px -14px -14px 14px;
+  border:1px solid var(--accent);
+  border-radius:16px;
+  opacity:.55;
+  z-index:0
+}
+.portrait img {
+  position:relative;
+  z-index:1;
+  width:100%;
+  height:auto;
+  border-radius:16px;
+  display:block;
+  border:1px solid var(--line)
+}
+@media(max-width:767px) {
+  .portrait {
+    margin-inline:auto;
+    max-width:300px
+  }
+}
+body {
+  overflow-x:clip
+}
+.terminal {
+  min-width:0
+}
+@media(max-width:575px) {
+  .terminal pre {
+    white-space:pre-wrap;
+    word-break:break-word;
+    font-size:.78rem
+  }
+  .portrait::before {
+    inset:12px 0 -12px 0;
+    left:12px
+  }
+}

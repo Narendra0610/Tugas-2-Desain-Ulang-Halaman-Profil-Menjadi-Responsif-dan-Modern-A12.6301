@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html data-bs-theme="dark" lang="id">
+ <!-- ══════ HEAD (info halaman) ══════
+     Judul tab browser, deskripsi, tampilan saat link dibagikan (og:), ikon tab, font, dan file CSS.
+     Bootstrap dimuat LOKAL dari folder bootstrap/, bukan CDN. -->
+ <head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+  <title>
+   Narendra Heryan Syahputra | Back-end Developer
+  </title>
+  <meta content="Portofolio Narendra Heryan Syahputra, Back-end Developer dari Semarang." name="description">
+  <meta content="Narendra Heryan Syahputra | Back-end Developer" property="og:title">
+  <meta content="Driven by Logic. Inspired by Innovation." property="og:description">
+  <meta content="img/profile.jpg" property="og:image">
+  <meta content="#070a13" name="theme-color">
+  <!-- ══════ Ikon tab ══════
+     Ikon kecil di tab browser (SVG inline, huruf "nh"). Ganti teks "nh" di bagian text jika perlu. -->
+  <link href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23070a13'/%3E%3Ctext x='32' y='43' font-family='monospace' font-size='30' font-weight='700' text-anchor='middle' fill='%235eead4'%3Enh%3C/text%3E%3C/svg%3E" rel="icon">
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+  <!-- ══════ Font Google Fonts ══════
+     Bricolage Grotesque (judul), DM Sans (isi), JetBrains Mono (kode). Butuh internet. -->
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&amp;family=DM+Sans:wght@400;500;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+  <!-- ══════ CSS ══════
+     Urutan penting: Bootstrap dulu, lalu css/style.css agar gaya kustom menimpa bawaan Bootstrap. -->
+  <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+ </head>
+ <!-- ══════ BODY ══════
+     data-bs-spy membuat menu atas menyorot bagian yang sedang dibaca (scrollspy Bootstrap). -->
+ <body data-bs-offset="100" data-bs-spy="scroll" data-bs-target="#menu" tabindex="0">
+  <!-- ══════ NAVBAR (menu atas) ══════
+     Tetap di atas saat scroll. Di HP berubah jadi tombol hamburger.
+     Teks menu diambil dari js/main.js lewat atribut data-i18n (ID/EN). -->
+  <nav class="navbar navbar-expand-lg fixed-top site-nav">
+   <div class="container">
+    <a class="navbar-brand fw-bold" href="#home">
+     narendra
+     <span class="dot">
+      .
+     </span>
+     dev
+    </a>
+    <button aria-controls="menu" aria-expanded="false" aria-label="Menu" class="navbar-toggler" data-bs-target="#menu" data-bs-toggle="collapse" type="button">
+     <span class="navbar-toggler-icon">
+     </span>
+    </button>
+    <div class="collapse navbar-collapse" id="menu">
+     <ul class="navbar-nav mx-auto">
+      <li class="nav-item">
+       <a class="nav-link" data-i18n="nav.about" href="#about">
+       </a>
+      </li>
+      <li class="nav-item">
+       <a class="nav-link" data-i18n="nav.skills" href="#skills">
+       </a>
+      </li>
+      <li class="nav-item">
+       <a class="nav-link" data-i18n="nav.projects" href="#projects">
+       </a>
+      </li>
+      <li class="nav-item">
+       <a class="nav-link" data-i18n="nav.experience" href="#experience">
+       </a>
+      </li>
+      <li class="nav-item">
+       <a class="nav-link" data-i18n="nav.awards" href="#awards">
+       </a>
+      </li>
+      <li class="nav-item">
+       <a class="nav-link" data-i18n="nav.contact" href="#contact">
+       </a>
+      </li>
+     </ul>
+     <!-- ══════ Tombol bahasa & tema ══════
+     #langBtn = ganti ID/EN, #themeBtn = ganti gelap/terang. Logikanya ada di js/main.js. -->
+     <div class="d-flex gap-2 pt-3 pt-lg-0">
+      <button aria-label="Ganti bahasa / Switch language" class="btn btn-sm btn-outline-accent" id="langBtn" type="button">
+       EN
+      </button>
+      <button aria-label="Ganti tema / Toggle theme" class="btn btn-sm btn-outline-accent" id="themeBtn" type="button">
+       Light
+      </button>
+     </div>
+    </div>
+   </div>
+  </nav>
+  <!-- ══════ HERO (bagian pembuka) ══════
+     Kiri: status, nama, peran, tagline, tombol. Kanan: kartu terminal.
+     Nama & tagline ditulis langsung di sini; status & peran ada di js/main.js (hero.status, hero.role). -->
+  <header class="hero" id="home">
+   <div class="container">
+    <div class="row align-items-center g-4 g-lg-5">
+     <div class="col-lg-6">
+      <p class="status">
+       <span class="pulse">
+       </span>
+       <span data-i18n="hero.status">
+       </span>
+      </p>
+      <h1 class="display-name">
+       Narendra Heryan Syahputra
+      </h1>
+      <p class="lead-role" data-i18n="hero.role">
+      </p>
+      <p class="tagline">
+       &ldquo;Driven by Logic. Inspired by Innovation.&rdquo;
+      </p>
+      <div class="d-flex flex-wrap gap-2 mt-4">
+       <a class="btn btn-accent" data-i18n="hero.cta1" href="#projects">
+       </a>
+       <a class="btn btn-outline-accent" data-i18n="hero.cta2" href="#contact">
+       </a>
+      </div>
+     </div>
+     <div class="col-lg-6">
+      <!-- ══════ Kartu terminal (JSON) ══════
+     Ringkasan profil bergaya respons API. Edit nilainya langsung di bawah.
+     Warna: .k = kunci, .s = teks, .n = angka/boolean, .c = komentar. -->
+      <div aria-label="Ringkasan profil dalam format JSON" class="terminal" role="img">
+       <div class="term-bar">
+        <i>
+        </i>
+        <i>
+        </i>
+        <i>
+        </i>
+        <span>
+         GET /api/narendra
+        </span>
+       </div>
+       <pre><code><span class="c">// 200 OK</span>
+{
+  <span class="k">"name"</span>: <span class="s">"Narendra Heryan Syahputra"</span>,
+  <span class="k">"role"</span>: <span class="s">"Back-end Developer"</span>,
+  <span class="k">"education"</span>: <span class="s">"S1 Sistem Informasi, UDINUS"</span>,
+  <span class="k">"stack"</span>: [<span class="s">"PHP"</span>, <span class="s">"JavaScript"</span>, <span class="s">"Python"</span>, <span class="s">"SQL"</span>],
+  <span class="k">"location"</span>: <span class="s">"Semarang, ID"</span>,
+  <span class="k">"open_to"</span>: [<span class="s">"remote"</span>, <span class="s">"hybrid"</span>, <span class="s">"on-site"</span>],
+  <span class="k">"available"</span>: <span class="n">true</span>
+}<span class="caret"></span></code></pre>
+      </div>
+     </div>
+    </div>
+   </div>
+  </header>
+  <!-- ══════ MAIN (isi halaman) ══════
+     Berurutan: Tentang, Keahlian, Proyek, Pengalaman, Sertifikat, Kontak. -->
+  <main>
+   <!-- ══════ TENTANG ══════
+     Foto, dua paragraf perkenalan (teks di js/main.js: about.p1, about.p2), dan pendidikan. -->
+   <section class="section" id="about">
+    <div class="container">
+     <h2 data-i18n="about.title">
+     </h2>
+     <div class="row g-4 g-lg-5 align-items-start">
+      <div class="col-md-5 col-lg-4">
+       <!-- ══════ Foto profil ══════
+     Ganti foto dengan menimpa file img/profile.png (rasio ±5:6 paling pas). Perbarui juga teks alt jika perlu. -->
+       <figure class="portrait">
+        <img alt="Foto Narendra Heryan Syahputra" height="866" loading="lazy" src="img/gokil.png" width="720">
+       </figure>
+      </div>
+      <div class="col-md-7 col-lg-8">
+       <p data-i18n="about.p1">
+       </p>
+       <p data-i18n="about.p2">
+       </p>
+       <h3 class="h6 text-muted-2 mt-4" data-i18n="edu.title">
+       </h3>
+       <!-- ══════ Pendidikan ══════
+     Salin satu <li> untuk menambah riwayat pendidikan. -->
+       <ul class="list-unstyled edu">
+        <li>
+         <strong>
+          Universitas Dian Nuswantoro
+         </strong>
+         <span data-i18n="edu.uni">
+         </span>
+         <small>
+          2025 &ndash;
+          <span data-i18n="common.now">
+          </span>
+         </small>
+        </li>
+        <li>
+         <strong>
+          SMK Negeri 8 Semarang
+         </strong>
+         <span data-i18n="edu.smk">
+         </span>
+         <small>
+          2021 &ndash; 2024
+         </small>
+        </li>
+       </ul>
+      </div>
+     </div>
+    </div>
+   </section>
+   <!-- ══════ KEAHLIAN ══════
+     Kartu per kategori berisi badge. Tanpa persentase agar kredibel.
+     Tambah skill: salin satu <span> di dalam .badges. Hapus yang belum pernah Anda pakai. -->
+   <section class="section alt" id="skills">
+    <div class="container">
+     <h2 data-i18n="skills.title">
+     </h2>
+     <div class="row g-4">
+      <div class="col-md-6 col-lg-4">
+       <div class="panel">
+        <h3 data-i18n="skills.lang">
+        </h3>
+        <div class="badges">
+         <span>
+          PHP
+         </span>
+         <span>
+          JavaScript
+         </span>
+         <span>
+          Python
+         </span>
+         <span>
+          SQL
+         </span>
+        </div>
+       </div>
+      </div>
+      <div class="col-md-6 col-lg-4">
+       <div class="panel">
+        <h3 data-i18n="skills.web">
+        </h3>
+        <div class="badges">
+         <span>
+          HTML5
+         </span>
+         <span>
+          CSS3
+         </span>
+         <span>
+          Bootstrap
+         </span>
+        </div>
+       </div>
+      </div>
+      <div class="col-md-6 col-lg-4">
+       <div class="panel">
+        <h3 data-i18n="skills.db">
+        </h3>
+        <div class="badges">
+         <span>
+          MySQL
+         </span>
+        </div>
+       </div>
+      </div>
+      <div class="col-md-6 col-lg-4">
+       <div class="panel">
+        <h3 data-i18n="skills.tools">
+        </h3>
+        <div class="badges">
+         <span>
+          Git
+         </span>
+         <span>
+          GitHub
+         </span>
+         <span>
+          VS Code
+         </span>
+         <span>
+          Postman
+         </span>
+        </div>
+       </div>
+      </div>
+      <div class="col-md-6 col-lg-8">
+       <div class="panel">
+        <h3 data-i18n="skills.core">
+        </h3>
+        <div class="badges">
+         <span>
+          Backend Development
+         </span>
+         <span>
+          REST API
+         </span>
+         <span>
+          Database Management
+         </span>
+         <span>
+          Problem Solving
+         </span>
+        </div>
+       </div>
+      </div>
+      <!-- ══════ Soft skills ══════
+     Daftar badge dibuat otomatis oleh JS dari js/main.js (kunci "soft") -->
+      <div class="col-12">
+       <div class="panel">
+        <h3 data-i18n="skills.soft">
+        </h3>
+        <div class="badges soft" id="softList">
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section>
+   <!-- ══════ PROYEK ══════ -->
+   <section class="section" id="projects">
+    <div class="container">
+     <h2 data-i18n="projects.title">
+     </h2>
+     <article class="project row g-4 align-items-center">
+      <div class="col-lg-7">
+       <img alt="Tampilan dasbor Omni: Core Tasks, Skill Progression, dan Your Energy" class="img-fluid rounded-3" loading="lazy" src="img/omni.jpg">
+      </div>
+      <div class="col-lg-5">
+       <h3>
+        Omni: Personal Productivity &amp; Skill Hub
+       </h3>
+       <p class="text-muted-2" data-i18n="projects.role">
+       </p>
+       <p data-i18n="projects.desc">
+       </p>
+       <ul class="proj-points">
+        <li data-i18n="projects.b1">
+        </li>
+        <li data-i18n="projects.b2">
+        </li>
+        <li data-i18n="projects.b3">
+        </li>
+       </ul>
+       <div class="badges">
+        <span>
+         React.js / Next.js
+        </span>
+        <span>
+         Tailwind CSS
+        </span>
+        <span>
+         Node.js (Express)
+        </span>
+        <span>
+         Firebase
+        </span>
+        <span>
+         PostgreSQL / MongoDB
+        </span>
+        <span>
+         Figma
+        </span>
+       </div>
+      </div>
+     </article>
+    </div>
+   </section>
+   <!-- ══════ PENGALAMAN ══════
+     Timeline, urutan dari yang TERBARU di atas. Salin satu <li> untuk menambah pengalaman.
+     Poin tugas ada di js/main.js (exp.*). -->
+   <section class="section alt" id="experience">
+    <div class="container">
+     <h2 data-i18n="exp.title">
+     </h2>
+     <ol class="timeline">
+      <li>
+       <time>
+        Sep 2024 &ndash; Des 2024
+        <small>
+         (3
+         <span data-i18n="common.months">
+         </span>
+         )
+        </small>
+       </time>
+       <h3>
+        PT. Reycom Document Solusi
+       </h3>
+       <p class="role" data-i18n="exp.staff">
+       </p>
+       <ul>
+        <li data-i18n="exp.s1">
+        </li>
+        <li data-i18n="exp.s2">
+        </li>
+        <li data-i18n="exp.s3">
+        </li>
+       </ul>
+      </li>
+      <li>
+       <time>
+        Jan 2025 &ndash;
+        <span data-i18n="common.now">
+        </span>
+       </time>
+       <h3>
+        Freelance
+       </h3>
+       <p class="role" data-i18n="exp.free">
+       </p>
+       <ul>
+        <li data-i18n="exp.f1">
+        </li>
+        <li data-i18n="exp.f2">
+        </li>
+        <li data-i18n="exp.f3">
+        </li>
+       </ul>
+      </li>
+      <li>
+       <time>
+        Jun 2023 &ndash; Des 2023
+        <small>
+         (6
+         <span data-i18n="common.months">
+         </span>
+         )
+        </small>
+       </time>
+       <h3>
+        PT. Reycom Document Solusi
+       </h3>
+       <p class="role">
+        Intern
+       </p>
+       <ul>
+        <li data-i18n="exp.i1">
+        </li>
+        <li data-i18n="exp.i2">
+        </li>
+        <li data-i18n="exp.i3">
+        </li>
+       </ul>
+      </li>
+     </ol>
+    </div>
+   </section>
+   <!-- ══════ SERTIFIKAT & PENGHARGAAN (dropdown) -->
+   <section class="section" id="awards">
+    <div class="container">
+     <h2 data-i18n="awards.title">
+     </h2>
+     <div class="accordion" id="awardAcc">
+      <div class="accordion-item">
+       <h3 class="accordion-header">
+        <button aria-controls="a1" aria-expanded="true" class="accordion-button" data-bs-target="#a1" data-bs-toggle="collapse" type="button">
+         Web Development Fundamentals
+         <span class="yr">
+          2023
+         </span>
+        </button>
+       </h3>
+       <div class="accordion-collapse collapse show" data-bs-parent="#awardAcc" id="a1">
+        <div class="accordion-body row g-4 align-items-center">
+         <div class="col-md-5">
+          <img alt="Sertifikat Web Development Fundamentals atas nama Narendra Heryan Syahputra" class="img-fluid rounded-3" src="img/sertifikat.jpg">
+         </div>
+         <div class="col-md-7">
+          <p class="mb-1">
+           <strong data-i18n="awards.issuer">
+           </strong>
+           :
+           <span data-i18n="awards.c1issuer">
+           </span>
+          </p>
+          <p data-i18n="awards.c1desc">
+          </p>
+         </div>
+        </div>
+       </div>
+      </div>
+      <!-- ══════ Dropdown 2: penghargaan ══════
+     Tertutup secara default (class "collapsed"). Gambar di img/m1.jpg. Perjelas status Anda (juara/peserta) di js/main.js: awards.c2desc. -->
+      <div class="accordion-item">
+       <h3 class="accordion-header">
+        <button aria-controls="a2" aria-expanded="false" class="accordion-button collapsed" data-bs-target="#a2" data-bs-toggle="collapse" type="button">
+         M1 World Championship
+         <span class="yr">
+          2019
+         </span>
+        </button>
+       </h3>
+       <div class="accordion-collapse collapse" data-bs-parent="#awardAcc" id="a2">
+        <div class="accordion-body row g-4 align-items-center">
+         <div class="col-md-5">
+          <img alt="Trofi World Champion M1 World Championship" class="img-fluid rounded-3" src="img/m1.jpg">
+         </div>
+         <div class="col-md-7">
+          <p class="mb-1">
+           <strong data-i18n="awards.issuer">
+           </strong>
+           : Moonton Games
+          </p>
+          <p data-i18n="awards.c2desc">
+          </p>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section>
+   <!-- ══════ KONTAK ══════
+     Kiri: tautan kontak. Kanan: formulir yang membuka WhatsApp dengan pesan terisi. -->
+   <section class="section alt" id="contact">
+    <div class="container">
+     <h2 data-i18n="contact.title">
+     </h2>
+     <div class="row g-4 g-lg-5">
+      <div class="col-lg-5">
+       <p data-i18n="contact.lead">
+       </p>
+       <!-- ══════ Daftar kontak ══════
+     Ganti email, nomor WhatsApp (format 62xxxxxxxxxx tanpa 0 di depan), dan link sosial media di sini. -->
+       <ul class="list-unstyled contact-list">
+        <li>
+         <span>
+          Email
+         </span>
+         <a href="mailto:rendrahs0610@gmail.com">
+          rendrahs0610@gmail.com
+         </a>
+        </li>
+        <li>
+         <span>
+          WhatsApp
+         </span>
+         <a href="https://wa.me/6282220221024" rel="noopener" target="_blank">
+          +62 822-2022-1024
+         </a>
+        </li>
+        <li>
+         <span>
+          LinkedIn
+         </span>
+         <a href="https://www.linkedin.com/in/narendra-heryan-syahputra-a5abbb31a" rel="noopener" target="_blank">
+          narendra-heryan-syahputra
+         </a>
+        </li>
+        <li>
+         <span>
+          GitHub
+         </span>
+         <a href="https://github.com/Narendra0610" rel="noopener" target="_blank">
+          Narendra0610
+         </a>
+        </li>
+        <li>
+         <span>
+          Instagram
+         </span>
+         <a href="https://instagram.com/rendrahs_" rel="noopener" target="_blank">
+          @rendrahs_
+         </a>
+        </li>
+       </ul>
+      </div>
+      <div class="col-lg-7">
+       <!-- ══════ Formulir kontak ══════
+     Situs statis tidak bisa mengirim email sendiri, jadi pesan dikirim lewat WhatsApp (js/main.js). Nomor tujuan diatur di sana juga. -->
+       <form class="panel" id="waForm" novalidate="">
+        <label class="form-label" data-i18n="contact.name" for="fName">
+        </label>
+        <input autocomplete="name" class="form-control mb-3" id="fName" required="">
+        <label class="form-label" data-i18n="contact.msg" for="fMsg">
+        </label>
+        <textarea class="form-control mb-3" id="fMsg" required="" rows="5"></textarea>
+        <button class="btn btn-accent" data-i18n="contact.send" type="submit">
+        </button>
+        <p class="small text-muted-2 mt-2 mb-0" data-i18n="contact.note">
+        </p>
+       </form>
+      </div>
+     </div>
+    </div>
+   </section>
+  </main>
+  <!-- ══════ FOOTER ══════
+     Tahun otomatis (id="yr") diisi oleh JS. -->
+  <footer class="py-4 text-center small text-muted-2">
+   &copy;
+   <span id="yr">
+   </span>
+   Narendra Heryan Syahputra
+  </footer>
+  <!-- ══════ SCRIPT ══════
+     Bootstrap JS (menu HP, dropdown, scrollspy) dimuat dulu, baru js/main.js (bahasa, tema, form). -->
+  <script src="bootstrap/js/bootstrap.bundle.min.js">
+  </script>
+  <script src="js/main.js">
+  </script>
+ </body>
+</html>
