@@ -4,7 +4,7 @@
 
 Situs portofolio pribadi Narendra Heryan Syahputra, Back-end Developer dan mahasiswa S1 Sistem Informasi Universitas Dian Nuswantoro, Semarang.
 
-🔗 **Live:** https://narendra0610.github.io/GANTI-NAMA-REPO/
+🔗 **Live:** https://narendra0610.github.io/GANTI-NAMA-REPO/](https://narendra0610.github.io/Tugas-2-Desain-Ulang-Halaman-Profil-Menjadi-Responsif-dan-Modern-A12.6301/
 
 ## Fitur
 
